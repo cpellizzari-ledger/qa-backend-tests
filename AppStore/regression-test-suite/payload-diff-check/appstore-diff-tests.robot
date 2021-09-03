@@ -43,8 +43,8 @@ POST /api/mcu_versions_bootloader       post/api/mcu_versions_bootloader
 *** Keywords ***
 Payloads On Both Versions Of The API Should Match
     [Arguments]    ${QUERY BUILDER URI}
-    ${REQUEST PAYLOAD}       Populate Payload With  ${QUERY BUILDER URI}
-    ${RESPONSE PAYLOAD 1}    Fetch Payload From  ${REQUEST PAYLOAD}
-    ${RESPONSE PAYLOAD 2}    Fetch Payload From  ${REQUEST PAYLOAD}
+    ${REQUEST PAYLOAD}       Populate Payload With  ${QUERY BUILDER URI}  ${CURDIR}
+    ${RESPONSE PAYLOAD 1}    Fetch Payload From  ${OLD ENDPOINT}  ${REQUEST PAYLOAD}
+    ${RESPONSE PAYLOAD 2}    Fetch Payload From  ${NEW ENDPOINT}  ${REQUEST PAYLOAD}
     Compare Two Payloads     ${RESPONSE PAYLOAD 1}  ${RESPONSE PAYLOAD 2}
 

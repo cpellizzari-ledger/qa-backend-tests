@@ -4,5 +4,5 @@ Library           ComparisonLibrary
 Library           RequestsHelperLibrary
 
 *** Variables ***
-${OLD ENDPOINT}      https://appstore-k8s.staging.aws.ledger.fr/
+${OLD ENDPOINT}      https://appstore-k8s.staging.aws.ledger.fr
 ${NEW ENDPOINT}      https://manager.api.live.ledger.com

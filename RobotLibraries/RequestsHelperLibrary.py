@@ -27,7 +27,7 @@ class RequestsHelperLibrary:
             )
             logger.info("Call on endpoint : " + uri)
         if query_object["method"] == "get":
-            response = requests.get(url=endpoint+uri)
+            response = requests.get(url=endpoint+uri, timeout=None)
             logger.info("Call on endpoint : " + uri)
         # if the response_code is any of 4**, 5**
         if not str(response.status_code).startswith('20'):

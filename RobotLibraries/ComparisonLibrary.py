@@ -9,9 +9,10 @@ class ComparisonLibrary:
 
     @keyword("Compare Two Payloads")
     def compare_payloads(self, old_payload, new_payload):
-
-        ddiff = DeepDiff(old_payload, new_payload, ignore_order=True)
-        if "get" in [*old_payload.values()]:
+        payload1 = old_payload.json()
+        payload2 = new_payload.json()
+        ddiff = DeepDiff(payload1, payload2, ignore_order=True)
+        if old_payload.request.method == "GET":
             if ddiff:
                 try:
                     logger.error(pprint(str(ddiff.to_json()), indent=2))
@@ -22,10 +23,10 @@ class ComparisonLibrary:
             return ddiff
         # Obviously for POST calls, values (id, date) will be different
         # We want to ignore the differences and look only at type changes
-        if "post" in [*old_payload.values()]:
+        if old_payload.request.method == "POST":
             if "type_changes" in ddiff:
                 try:
-                    logger.error(pprint(str(ddiff.to_json()), indent=2))
+                    logger.error(pprint(ddiff.to_json(), indent=2))
                 except Exception as e:
                     print(e)
                 raise ValueError("Payloads do not match!")

@@ -1,0 +1,352 @@
+{
+  "get/api/applications": {
+    "method": "get",
+    "uri": "/api/applications",
+    "query_string_params": "?livecommonversion=20.10.1&salt=c97139",
+    "payload": {}
+  },
+  "post/api/applications": {
+    "method": "post",
+    "uri": "/api/applications",
+    "query_string_params": "?livecommonversion=20.10.1&salt=c97139",
+    "payload": {
+      "name": "QA test",
+      "description": "QA Test",
+      "category": 1,
+      "publisher": null,
+      "currencyId": "",
+      "authorName": "qa",
+      "supportURL": "qa.rocks",
+      "contactURL": "qa.rocks",
+      "sourceURL": "qa.rocks",
+      "compatibleWalletsJSON": "string",
+      "providers": [
+        4
+      ]
+    }
+  },
+  "get/api/applications/{id}": {
+    "method": "get",
+    "uri": "/api/applications/{0}",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "uri_params": [
+      "1"
+    ],
+    "payload": {}
+  },
+  "post/api/get_apps": {
+    "method": "post",
+    "uri": "/api/get_apps",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "payload": {
+      "provider": 1,
+      "current_se_firmware_final_version": 129,
+      "device_version": 10
+    }
+  },
+  "get/api/application_versions": {
+    "method": "get",
+    "uri": "/api/application_versions",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "payload": {}
+  },
+  "post/api/application_versions": {
+    "method": "post",
+    "uri": "/api/application_versions",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "payload": {
+      "name": "QA test",
+      "version": "1.2.11",
+      "app": 7,
+      "description": "string",
+      "display_name": "string",
+      "icon": "string",
+      "notes": "string",
+      "perso": "string",
+      "hash": "string",
+      "firmware": "string",
+      "firmware_key": "string",
+      "delete": "string",
+      "delete_key": "string",
+      "device_versions": [
+        9
+      ],
+      "se_firmware_final_versions": [
+        19
+      ],
+      "providers": [
+        4
+      ],
+      "bytes": 0,
+      "warning": "string"
+    }
+  },
+  "get/api/application_versions/{id}": {
+    "method": "get",
+    "uri": "/api/application_versions/{0}",
+    "uri_params": [
+      "107"
+    ],
+    "query_string_params": "?livecommonversion=20.10.1",
+    "payload": {}
+  },
+  "post/api/get_device_version": {
+    "method": "post",
+    "uri": "/api/get_device_version",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "payload": {
+      "provider": 1,
+      "target_id": 823132164
+    }
+  },
+  "get/api/device_versions": {
+    "method": "get",
+    "uri": "/api/device_versions",
+    "query_string_params": "?livecommonversion=20.10.1"
+  },
+  "post/api/device_versions": {
+    "method": "post",
+    "uri": "/api/device_versions",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "payload": {
+      "provider": 1,
+      "target_id": 823132164
+    }
+  },
+  "get/api/device_versions/{p1}": {
+    "method": "get",
+    "uri": "/api/device_versions/{0}",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "uri_params": [
+      "1"
+    ],
+    "payload": {}
+  },
+  "get/api/devices": {
+    "method": "get",
+    "uri": "/api/devices",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "payload": {}
+  },
+  "post/api/devices": {
+    "method": "post",
+    "uri": "/api/devices",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "payload": {}
+  },
+  "get/api/devices/{id}": {
+    "method": "get",
+    "uri": "/api/devices/{0}",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "uri_params": [
+      "3"
+    ]
+  },
+  "post/api/get_firmware_version": {
+    "method": "post",
+    "uri": "/api/get_firmware_version",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "payload": {
+      "device_version": 10,
+      "version_name": "2.0.0",
+      "provider": 1
+    }
+  },
+  "post/api/get_latest_firmware": {
+    "method": "post",
+    "uri": "/api/get_latest_firmware",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "payload": {}
+  },
+  "post/api/get_osu_version": {
+    "method": "post",
+    "uri": "/api/get_osu_version",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "payload": {
+      "version_name": "string",
+      "device_version": 0,
+      "provider": 0
+    }
+  },
+  "get/api/firmwares": {
+    "method": "get",
+    "uri": "/api/firmwares",
+    "query_string_params": "?livecommonversion=20.10.1"
+  },
+  "post/api/firmwares": {
+    "method": "post",
+    "uri": "/api/firmwares",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "payload": {
+      "name": "string",
+      "description": "string",
+      "providers": [
+        4
+      ]
+    }
+  },
+  "get/api/firmwares/{id}": {
+    "method": "get",
+    "uri": "/api/firmwares/{0}",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "uri_params": [
+      "6"
+    ]
+  },
+  "get/api/firmware_final_versions": {
+    "method": "get",
+    "uri": "/api/firmware_final_versions",
+    "query_string_params": "?livecommonversion=20.10.1"
+  },
+  "post/api/firmware_final_versions": {
+    "method": "post",
+    "uri": "/api/firmware_final_versions",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "payload": {
+      "name": "QA test",
+      "version": "2.0.1",
+      "se_firmware": 1,
+      "description": "string",
+      "display_name": "string",
+      "notes": "string",
+      "perso": "string",
+      "firmware": "string",
+      "firmware_key": "string",
+      "hash": "string",
+      "distribution_ratio": 0,
+      "exclude_by_default": true,
+      "device_versions": [
+        3
+      ],
+      "providers": [
+        4
+      ],
+      "bytes": 0
+    }
+  },
+  "get/api/firmware_final_versions/{id}": {
+    "method": "get",
+    "uri": "/api/firmware_final_versions/{0}",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "uri_params": [
+      "109"
+    ]
+  },
+  "get/api/firmware_osu_versions/{id}": {
+    "method": "get",
+    "uri": "/api/firmware_osu_versions/{0}",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "uri_params": [
+      "18"
+    ]
+  },
+  "get/api/firmware_osu_versions": {
+    "method": "get",
+    "uri": "/api/firmware_osu_versions",
+    "query_string_params": "?livecommonversion=20.10.1"
+  },
+  "post/api/firmware_osu_versions": {
+    "method": "post",
+    "uri": "/api/firmware_osu_versions",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "payload": {
+      "name": "QA test",
+      "description": "QA test",
+      "display_name": "QA test",
+      "notes": "string",
+      "perso": "string",
+      "firmware": "string",
+      "firmware_key": "string",
+      "hash": "string",
+      "next_se_firmware_final_version": 95,
+      "previous_se_firmware_final_versions": [
+        89
+      ],
+      "device_versions": [
+        8
+      ],
+      "providers": [
+        4
+      ],
+      "minimum_live_common_version": "18.5.7"
+    }
+  },
+  "get/api/health": {
+    "method": "get",
+    "uri": "/api/health"
+  },
+  "get/api/mcu/{id}": {
+    "method": "get",
+    "uri": "/api/mcu/{0}",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "uri_params": [
+      "4"
+    ]
+  },
+  "get/api/mcu": {
+    "method": "get",
+    "uri": "/api/mcu",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "payload": {}
+  },
+  "post/api/mcu": {
+    "method": "post",
+    "uri": "/api/mcu",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "payload": {
+      "name": "Qa test",
+      "description": "QA test",
+      "providers": [
+        4
+      ]
+    }
+  },
+  "get/api/mcu_versions/{id}": {
+    "method": "get",
+    "uri": "/api/mcu_versions/{0}",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "uri_params": [
+      "18"
+    ],
+    "payload": {}
+  },
+  "get/api/mcu_versions": {
+    "method": "get",
+    "uri": "/api/mcu_versions",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "payload": {}
+  },
+  "post/api/mcu_versions": {
+    "method": "post",
+    "uri": "/api/mcu_versions",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "payload": {
+      "mcu": 1,
+      "name": "QA Test",
+      "description": "string",
+      "providers": [
+        4
+      ],
+      "device_versions": [
+        1,
+        2
+      ],
+      "from_bootloader_version": "0.6.0",
+      "se_firmware_final_versions": [
+        7,
+        12,
+        13,
+        14,
+        15
+      ]
+    }
+  },
+  "post/api/mcu_versions_bootloader": {
+    "method": "post",
+    "uri": "/api/mcu_versions_bootloader",
+    "query_string_params": "?livecommonversion=20.10.1",
+    "payload": {
+      "bootloader_version": "1.2.3"
+    }
+  }
+}

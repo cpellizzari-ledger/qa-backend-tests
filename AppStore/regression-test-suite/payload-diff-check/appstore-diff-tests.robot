@@ -4,7 +4,7 @@ Resource          resources.robot
 Test Template     Payloads On Both Versions Of The API Should Match
 
 *** Test Cases ***                      ${QUERY BUILDER URI}
-GET /api/applications                   get/api/applications
+#GET /api/applications                   get/api/applications
 POST /api/applications                  post/api/applications
 GET /api/applications/{id}              get/api/applications/{id}
 POST /api/get_apps                      post/api/get_apps
@@ -30,7 +30,7 @@ GET /api/firmware_final_versions/{id}   get/api/firmware_final_versions/{id}
 GET /api/firmware_osu_versions/{id}     get/api/firmware_osu_versions/{id}
 GET /api/firmware_osu_versions          get/api/firmware_osu_versions
 POST /api/firmware_osu_versions         post/api/firmware_osu_versions
-GET /api/health                         get/api/health
+#GET /api/health                         get/api/health
 GET /api/mcu/{id}                       get/api/mcu/{id}
 GET /api/mcu                            get/api/mcu
 POST /api/mcu                           post/api/mcu

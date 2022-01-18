@@ -142,7 +142,7 @@ dmypy.json
 cython_debug/
 
 # Sensitive files
-**/data.json
+CounterValueService/regression-test-suite/data.json
 
 # RobotFramework Reports
 **/log.html

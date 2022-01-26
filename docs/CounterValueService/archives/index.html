@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CVS Archives</title>
+</head>
+<body>
+    <h1>CVS Archives</h1>
+    {% assign doclist = site.pages | sort: 'url'  %}
+    <ul>
+        {% for doc in doclist %}
+        {% if doc.name contains '.md' or doc.name contains '.html' %}
+        <li><a href="{{ site.baseurl }}{{ doc.url }}">{{ doc.url }}</a></li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</body>
+</html>

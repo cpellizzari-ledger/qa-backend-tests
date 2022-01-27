@@ -145,7 +145,4 @@ cython_debug/
 CounterValueService/regression-test-suite/data.json
 
 # RobotFramework Reports
-**/log.html
-**/output.xml
-**/report.html
 reports/

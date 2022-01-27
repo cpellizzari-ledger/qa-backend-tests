@@ -1,0 +1,68 @@
+name: CVS QA
+on: workflow_dispatch
+jobs:
+  CVS-QA:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [ "3.9" ]
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install virtualenv
+          virtualenv qa-ledger
+          source qa-ledger/bin/activate
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Run QA
+        continue-on-error: true
+        run: |
+          mkdir reports
+          source qa-ledger/bin/activate
+          export PYTHONPATH="${PYTHONPATH}:${{ github.workspace }}/RobotLibraries"
+          echo "Python path : ${PYTHONPATH}"
+          robot -T -d reports -n noncritical CounterValueService/regression-test-suite
+      - name: Create report folder
+        run: |
+          REPORT_DATE=$(date +'%Y-%m-%d-%H-%M-%S %Z')
+          PROJECT=CounterValueService
+          ARCHIVE_DIR="docs/$PROJECT/archives/$REPORT_DATE"
+          LOG_FILE="${ARCHIVE_DIR}/log.html"
+          REPORT_FILE="${ARCHIVE_DIR}/report.html"
+          OUTPUT_FILE="${ARCHIVE_DIR}/output.xml"
+          mkdir "${ARCHIVE_DIR}"
+          mv reports/log-* "${LOG_FILE}"
+          mv reports/report-* "${REPORT_FILE}"
+          mv reports/output-* "${OUTPUT_FILE}"
+          echo "------"|cat - "${LOG_FILE}" > /tmp/out && mv /tmp/out "${LOG_FILE}"
+          echo "------"|cat - "${REPORT_FILE}" > /tmp/out && mv /tmp/out "${REPORT_FILE}"
+          cp -r "${ARCHIVE_DIR}/." "docs/$PROJECT"
+          rm -r reports
+      - name: List files in the repository
+        run: |
+          ls "${{ github.workspace }}/docs/${PROJECT}"
+      - name: Commit files
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -A
+          git commit -m "Add new reports" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+      - name: Upload reports
+        uses: actions/upload-artifact@v2
+        with:
+          name: new CVS reports
+          path: docs/CounterValueService
+      - run: echo "🍏 This job's status is ${{ job.status }}."

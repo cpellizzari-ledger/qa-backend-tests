@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1 (Python 3.9.10 on linux)" generated="20220127 16:07:39.279" rpa="false" schemaversion="2">
+<suite id="s1" name="Regression-Test-Suite" source="/home/runner/work/qa-backend-tests/qa-backend-tests/CounterValueService/regression-test-suite">
+<suite id="s1-s1" name="Coingecko-Reg-Tests" source="/home/runner/work/qa-backend-tests/qa-backend-tests/CounterValueService/regression-test-suite/coingecko-reg-tests.robot">
+<test id="s1-s1-t1" name="Check ETH ticker">
+<kw name="Tickers should all return non empty">
+<arg>eth</arg>
+<kw name="Load JSON from file" library="RPA.JSON">
+<var>${JSON FILE}</var>
+<arg>/home/runner/work/qa-backend-tests/qa-backend-tests/CounterValueService/regression-test-suite/data.json</arg>
+<doc>Load JSON data from a file, and return it as JSON serializable object.
+Depending on the input file the object can be either a dictionary,
+a list, or a scalar value.</doc>
+<msg timestamp="20220127 16:07:39.379" level="INFO">Loading JSON from file: /home/runner/work/qa-backend-tests/qa-backend-tests/CounterValueService/regression-test-suite/data.json</msg>
+<msg timestamp="20220127 16:07:39.379" level="INFO">${JSON FILE} = {'supported_currencies': ['AUD', 'BTC']}</msg>
+<status status="PASS" starttime="20220127 16:07:39.379" endtime="20220127 16:07:39.379"/>
+</kw>
+<kw name="Get values from JSON" library="RPA.JSON">
+<var>${CURRENCY LIST}</var>
+<arg>${JSON FILE}</arg>
+<arg>$.supported_currencies[*]</arg>
+<doc>Get all values from a JSON serializable object that match the given expression.</doc>
+<msg timestamp="20220127 16:07:39.380" level="INFO">Get values from JSON with expression: "$.supported_currencies[*]"</msg>
+<msg timestamp="20220127 16:07:39.404" level="INFO">${CURRENCY LIST} = ['AUD', 'BTC']</msg>
+<status status="PASS" starttime="20220127 16:07:39.380" endtime="20220127 16:07:39.404"/>
+</kw>
+<kw name="Run ticker against list" library="RequestsHelperLibrary">
+<arg>${ENDPOINT STAGING}</arg>
+<arg>${ENDPOINT PROD}</arg>
+<arg>${CURRENCY TICKER}</arg>
+<arg>${CURRENCY LIST}</arg>
+<arg>${URI SCHEME DAILY}</arg>
+<status status="PASS" starttime="20220127 16:07:39.405" endtime="20220127 16:07:40.527"/>
+</kw>
+<status status="PASS" starttime="20220127 16:07:39.378" endtime="20220127 16:07:40.527"/>
+</kw>
+<status status="PASS" starttime="20220127 16:07:39.377" endtime="20220127 16:07:40.527"/>
+</test>
+<test id="s1-s1-t2" name="Check BTC ticker">
+<kw name="Tickers should all return non empty">
+<arg>btc</arg>
+<kw name="Load JSON from file" library="RPA.JSON">
+<var>${JSON FILE}</var>
+<arg>/home/runner/work/qa-backend-tests/qa-backend-tests/CounterValueService/regression-test-suite/data.json</arg>
+<doc>Load JSON data from a file, and return it as JSON serializable object.
+Depending on the input file the object can be either a dictionary,
+a list, or a scalar value.</doc>
+<msg timestamp="20220127 16:07:40.529" level="INFO">Loading JSON from file: /home/runner/work/qa-backend-tests/qa-backend-tests/CounterValueService/regression-test-suite/data.json</msg>
+<msg timestamp="20220127 16:07:40.529" level="INFO">${JSON FILE} = {'supported_currencies': ['AUD', 'BTC']}</msg>
+<status status="PASS" starttime="20220127 16:07:40.529" endtime="20220127 16:07:40.529"/>
+</kw>
+<kw name="Get values from JSON" library="RPA.JSON">
+<var>${CURRENCY LIST}</var>
+<arg>${JSON FILE}</arg>
+<arg>$.supported_currencies[*]</arg>
+<doc>Get all values from a JSON serializable object that match the given expression.</doc>
+<msg timestamp="20220127 16:07:40.530" level="INFO">Get values from JSON with expression: "$.supported_currencies[*]"</msg>
+<msg timestamp="20220127 16:07:40.551" level="INFO">${CURRENCY LIST} = ['AUD', 'BTC']</msg>
+<status status="PASS" starttime="20220127 16:07:40.530" endtime="20220127 16:07:40.551"/>
+</kw>
+<kw name="Run ticker against list" library="RequestsHelperLibrary">
+<arg>${ENDPOINT STAGING}</arg>
+<arg>${ENDPOINT PROD}</arg>
+<arg>${CURRENCY TICKER}</arg>
+<arg>${CURRENCY LIST}</arg>
+<arg>${URI SCHEME DAILY}</arg>
+<status status="PASS" starttime="20220127 16:07:40.551" endtime="20220127 16:07:41.528"/>
+</kw>
+<status status="PASS" starttime="20220127 16:07:40.528" endtime="20220127 16:07:41.528"/>
+</kw>
+<status status="PASS" starttime="20220127 16:07:40.528" endtime="20220127 16:07:41.528"/>
+</test>
+<doc>A test suite that ensures each listed fiat currency has a ticker in most used coins</doc>
+<status status="PASS" starttime="20220127 16:07:39.300" endtime="20220127 16:07:41.529"/>
+</suite>
+<status status="PASS" starttime="20220127 16:07:39.280" endtime="20220127 16:07:41.531"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Regression-Test-Suite">Regression-Test-Suite</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1" name="Coingecko-Reg-Tests">Regression-Test-Suite.Coingecko-Reg-Tests</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220127 16:07:39.275" level="WARN">Command line options --critical and --noncritical have been deprecated. Use --skiponfailure instead.</msg>
+</errors>
+</robot>
